@@ -7,9 +7,5 @@ export default function WikiRace() {
 
   return <div>Loading WikiRace...</div>;
 }
-```
-5. Commit it
 
-Then wait for ✅ Ready and visit:
-```
-https://chrysalis-iiserb-mocha.vercel.app/wikirace
+
