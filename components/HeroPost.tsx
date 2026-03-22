@@ -2,14 +2,15 @@ import CoverImage from 'components/CoverImage'
 import Date from 'components/PostDate'
 import type { Post } from 'lib/sanity.queries'
 import Link from 'next/link'
-import { useState } from 'react'
 
-export default function HeroPost(
-  props: Pick
-    Post,
-    'title' | 'coverImage' | 'date' | 'excerpt' | 'author' | 'slug'
-  >,
-) {
+export default function HeroPost(props: {
+  title: string
+  coverImage: any
+  date: string
+  excerpt: string
+  author: any
+  slug: string
+}) {
   const { title, coverImage, date, excerpt, author, slug } = props
   return (
     <section className="relative w-full overflow-hidden rounded-xl mb-12">
