@@ -137,6 +137,7 @@ const MenuItems = () => {
     { title: 'About', href: '/about' },
     { title: 'Submissions', href: '/submissions' },
     { title: 'Contact', href: '/contact' },
+    { title: 'WikiRace ⚡', href: '/wiki_racing.html' },
   ]
 
   const teamItems = [
@@ -185,9 +186,15 @@ const MenuItems = () => {
 
       {listItems.map((item) => (
         <li key={item.title} className='border-b py-4'>
-          <Link href={item.href}>
-            <p className="list-items hover:underline">{item.title}</p>
-          </Link>
+          {item.href.endsWith('.html') ? (
+            <a href={item.href} target="_blank" rel="noopener noreferrer">
+              <p className="list-items hover:underline">{item.title}</p>
+            </a>
+          ) : (
+            <Link href={item.href}>
+              <p className="list-items hover:underline">{item.title}</p>
+            </Link>
+          )}
         </li>
       ))}
     </ul>
