@@ -1,7 +1,4 @@
 import Link from 'next/link'
-import { PortableText } from 'next-sanity'
-
-import styles from './BlogHeader.module.css'
 
 export default function BlogHeader({
   title,
@@ -15,18 +12,22 @@ export default function BlogHeader({
   switch (level) {
     case 1:
       return (
-        <header className="mb-10 mt-16 flex flex-col items-center md:mb-12 md:flex-row md:justify-between text-pretty">
-          <h1 className="text-6xl font-bold leading-tight tracking-tighter md:pr-8 md:text-8xl">
-            {title}
-          </h1>
-          <h4
-            className={`mt-5 text-center text-lg md:pl-8 md:text-left ${styles.portableText}`}
-          >
-            <PortableText value={description} />
-          </h4>
+        <header className="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+          <Link href="/" className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-sm">C</div>
+            <span className="text-2xl font-black tracking-widest uppercase">CHRYSALIS.</span>
+          </Link>
+          <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+            <Link href="/" className="hover:underline">Home</Link>
+            <Link href="/posts" className="hover:underline">Posts</Link>
+            <Link href="/editions" className="hover:underline">Editions</Link>
+            <Link href="/about" className="hover:underline">About</Link>
+            <Link href="/submissions" className="hover:underline">Submissions</Link>
+            <Link href="/contact" className="hover:underline">Contact</Link>
+            <Link href="/wikirace" className="hover:underline">WikiRace</Link>
+          </nav>
         </header>
       )
-
     case 2:
       return (
         <header>
@@ -37,7 +38,6 @@ export default function BlogHeader({
           </h2>
         </header>
       )
-
     default:
       throw new Error(
         `Invalid level: ${
