@@ -1,7 +1,7 @@
 import React from 'react'
 import { getAllEditions, getClient } from 'lib/sanity.client'
 import { Editions } from 'lib/sanity.queries'
-import { GetStaticProps, GetStaticPaths } from 'next'
+import { GetStaticProps, GetStaticPaths } from 'next' 
 
 export default function EditionReader({ edition }: { edition: Editions }) {
   if (!edition) return React.createElement('div', null, 'Edition not found')
