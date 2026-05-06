@@ -6,7 +6,7 @@ import { GetStaticProps, GetStaticPaths } from 'next'
 export default function EditionReader({ edition }: { edition: Editions }) {
   if (!edition) return React.createElement('div', null, 'Edition not found')
   return React.createElement(
-    'div',
+    'div', 
     { className: 'min-h-screen bg-gray-900 flex flex-col items-center py-8 px-4' },
     React.createElement('h1', { className: 'text-white text-3xl font-bold mb-6' }, edition.title),
     edition.flipUrl
