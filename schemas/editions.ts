@@ -38,5 +38,11 @@ export default defineType({
         type: 'file',
         validation: (rule) => rule.required(),
     }),
+      defineField({
+        name: 'flipUrl',
+        title: 'FlipHTML5 URL',
+        type: 'url',
+        description: 'Paste the FlipHTML5 embed URL here',
+    }),
   ]
 })
