@@ -1,5 +1,4 @@
 import { groq } from 'next-sanity'
-
 const postFields = groq`
   _id,
   title,
@@ -11,14 +10,11 @@ const postFields = groq`
   "author": author->{name, picture},
   "category": category->{name}
 `
-
 export const settingsQuery = groq`*[_type == "settings"][0]`
-
 export const indexQuery = groq`
 *[_type == "post"] | order(date desc, _updatedAt desc) {
   ${postFields}
 }`
-
 export const postAndMoreStoriesQuery = groq`
 {
   "post": *[_type == "post" && slug.current == $slug] | order(_updatedAt desc) [0] {
@@ -30,17 +26,14 @@ export const postAndMoreStoriesQuery = groq`
     ${postFields}
   }
 }`
-
 export const postSlugsQuery = groq`
 *[_type == "post" && defined(slug.current)][].slug.current
 `
-
 export const postBySlugQuery = groq`
 *[_type == "post" && slug.current == $slug][0] {
   ${postFields}
 }
 `
-
 export const postsByTypeQuery = `
 *[_type == "post" && references($type)] | order(date desc, _updatedAt desc) {
   ${postFields}
@@ -52,11 +45,9 @@ export const postCategoriesQuery = groq`
   coverImage
 }
 `
-
 export const CategoryRef = groq`
 *[_type == 'category' && name == $categoryName][0]._id
 `
-
 export const allEditions = groq`
 *[_type == "editions"] | order(date desc, _updatedAt desc){
   _id,
@@ -65,10 +56,9 @@ export const allEditions = groq`
   editorsnote,
   coverImage, 
   File,
+  flipUrl,
   "pdf_download_url": File.asset -> url
 }`
-
-
 export const latestEdition = groq`
 *[_type == "editions"] | order(date desc, _updatedAt desc)[0]{
   _id,
@@ -77,26 +67,21 @@ export const latestEdition = groq`
   editorsnote,
   coverImage, 
   File,
+  flipUrl,
   "pdf_download_url": File.asset -> url
 }`
-
 export const FiveLatestPosts = groq`
 *[_type == "post"] | order(date desc, _updatedAt desc)[0...5] {
   ${postFields}
 }`
-
-
-
 export interface Author {
   name?: string
   picture?: any
 }
-
 export interface Category {
   name?: string,
   coverImage?: any
 }
-
 export interface Post {
   _id: string
   title?: string
@@ -109,7 +94,6 @@ export interface Post {
   content?: any
   category?: Category
 }
-
 export interface Settings {
   title?: string
   description?: any[]
@@ -117,14 +101,13 @@ export interface Settings {
     title?: string
   }
 }
-
 export interface Editions {
-    _id: string,
-    title : string,
-    description : string,
-    editorsnote : string,
-    coverImage?: any, 
-    File?: any,
-    pdf_download_url: string
-
-  }
+  _id: string,
+  title: string,
+  description: string,
+  editorsnote: string,
+  coverImage?: any, 
+  File?: any,
+  flipUrl?: string,
+  pdf_download_url: string
+}
