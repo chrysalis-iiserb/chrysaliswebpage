@@ -7,23 +7,34 @@ export default function EditionReader({ edition }: { edition: Editions }) {
   if (!edition) return <div>Edition not found</div>
   return (
     <PageLayout>
-      <div className="min-h-screen bg-gray-900 flex flex-col items-center py-8">
+      <div className="min-h-screen bg-gray-900 flex flex-col items-center py-8 px-4">
         <h1 className="text-white text-3xl font-bold mb-6">{edition.title}</h1>
-        <div className="w-full max-w-5xl h-[85vh]">
-          <iframe
-            src={edition.pdf_download_url}
-            className="w-full h-full border-0"
-            title={edition.title}
-          />
-        </div>
-        <a 
-          href={edition.pdf_download_url} 
-          target="_blank"
-          rel="noreferrer"
-          className="mt-4 text-white underline text-sm"
-        >
-          Open PDF in new tab
-        </a>
+        {edition.flipUrl ? (
+          <div style={{ position: 'relative', paddingTop: 'max(60%, 324px)', width: '100%', height: 0 }}>
+            <iframe
+              style={{ position: 'absolute', border: 'none', width: '100%', height: '100%', left: 0, top: 0 }}
+              src={edition.flipUrl}
+              title={edition.title}
+              seamless
+              scrolling="no"
+              frameBorder="0"
+              allowTransparency={true}
+              allowFullScreen={true}
+            />
+          </div>
+        ) : (
+          <div className="text-white text-center">
+            <p className="mb-4">No flip reader available for this edition.</p>
+            
+              href={edition.pdf_download_url}
+              target="_blank"
+              rel="noreferrer"
+              className="underline"
+            >
+              Download PDF instead
+            </a>
+          </div>
+        )}
       </div>
     </PageLayout>
   )
