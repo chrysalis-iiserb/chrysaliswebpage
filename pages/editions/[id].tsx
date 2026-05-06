@@ -11,7 +11,7 @@ export default function EditionReader({ edition }: { edition: Editions }) {
         <h1 className="text-white text-3xl font-bold mb-6">{edition.title}</h1>
         <div className="w-full max-w-5xl h-[85vh]">
           <iframe
-            src={`https://docs.google.com/viewer?url=${encodeURIComponent(edition.download_url)}&embedded=true`}
+            src={`https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(edition.download_url)}`}
             className="w-full h-full border-0"
             title={edition.title}
           />
