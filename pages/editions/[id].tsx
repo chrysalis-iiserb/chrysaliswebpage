@@ -1,3 +1,4 @@
+import React from 'react'
 import { getAllEditions, getClient } from 'lib/sanity.client'
 import { Editions } from 'lib/sanity.queries'
 import { GetStaticProps, GetStaticPaths } from 'next'
