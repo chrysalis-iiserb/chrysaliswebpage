@@ -29,7 +29,7 @@ export default function EditionsPage(props: IndexPageProps) {
             <div className='md:p-12 flex'>
                 <div className="grid grid-cols-1 md:grid-cols-3 justify-center place-items-center w-full gap-12">
                     {editions.map((image: any, index: number) => (
-                        <a key={index} target='_blank' href={image.pdf_download_url} className='cursor-pointer mt-4 hover:underline'>
+                        <a key={index} href={`/editions/${image._id}`} className='cursor-pointer mt-4 hover:underline'>
                         <div key={image.title} className="md:basis-1/3  flex flex-col justify-center">
                         <Image
                             className="mx-auto drop-shadow-sm hover:drop-shadow-lg  "
