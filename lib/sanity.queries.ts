@@ -125,6 +125,6 @@ export interface Editions {
     editorsnote : string,
     coverImage?: any, 
     File?: any,
-    download_url: string
+    pdf_download_url: string
 
   }
