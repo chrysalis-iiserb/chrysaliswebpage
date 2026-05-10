@@ -22,6 +22,8 @@ import postType from 'schemas/post'
 import settingsType from 'schemas/settings'
 import categoryType from 'schemas/category'
 import editionType from 'schemas/editions'
+import teamMember from './schemas/teamMember'
+// add teamMember to the types array
 
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Next.js Blog with Sanity.io'
