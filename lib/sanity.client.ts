@@ -108,3 +108,9 @@ export async function getAllEditions(client: SanityClient) {
 export async function getLatestEdition(client: SanityClient) {
   return (await client.fetch(latestEdition)) || []
 }
+
+import { teamByYearQuery, TeamMember } from 'lib/sanity.queries'
+
+export async function getTeamByYear(client: SanityClient, year: number): Promise<TeamMember[]> {
+  return (await client.fetch(teamByYearQuery, { year })) || []
+}
