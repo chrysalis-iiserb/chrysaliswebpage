@@ -111,3 +111,29 @@ export interface Editions {
   flipUrl?: string,
   pdf_download_url: string
 }
+export const teamByYearQuery = groq`
+*[_type == "teamMember" && year == $year] | order(name asc) {
+  _id,
+  name,
+  role,
+  team,
+  year,
+  bio,
+  photo,
+  email,
+  instagram,
+  linkedin
+}`
+
+export interface TeamMember {
+  _id: string
+  name: string
+  role: string
+  team: string
+  year: number
+  bio?: string
+  photo?: any
+  email?: string
+  instagram?: string
+  linkedin?: string
+}
