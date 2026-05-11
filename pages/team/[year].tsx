@@ -67,7 +67,7 @@ export default function TeamPage({ team, settings, year }: Props) {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: [{ params: { year: '2026' } }, { params: { year: '2024' } }],
+    paths: [{ params: { year: '2026' } }],
     fallback: 'blocking',
   }
 }
